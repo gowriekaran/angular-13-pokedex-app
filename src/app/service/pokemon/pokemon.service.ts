@@ -5,6 +5,11 @@ import { Pokemon } from 'src/app/shared/models/Pokemon';
   providedIn: 'root',
 })
 export class PokemonService {
+  getAllPokemonsBySearchTerm(searchTerm: string): Pokemon[] {
+    return this.getAll().filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
   constructor() {}
 
   getAll(): Pokemon[] {

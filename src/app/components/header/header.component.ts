@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  searchTerm: string = '';
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      if (params['searchTerm']) {
+        this.searchTerm = params['searchTerm'];
+      }
+    });
   }
 
+  search(): void {
+    this.router.navigateByUrl('/search/' + this.searchTerm);
+  }
 }

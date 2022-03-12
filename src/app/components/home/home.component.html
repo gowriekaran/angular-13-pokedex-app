@@ -1,5 +1,9 @@
+<app-not-found
+  [visible]="!pokemons || pokemons.length <= 0"
+  resetLinkText="Reset search"
+></app-not-found>
 <div class="container mx-auto">
-  <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-6">
+  <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
     <div class="mx-auto p-3" *ngFor="let pokemon of pokemons">
       <img src="{{ pokemon.imageURL }}" alt="{{ pokemon.name }}" />
     </div>
