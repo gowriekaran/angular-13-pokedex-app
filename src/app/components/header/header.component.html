@@ -1,13 +1,12 @@
-<nav
-  class="flex items-center justify-between flex-wrap bg-[#1c1917] p-6 sticky top-0 z-50"
->
-  <div class="flex items-center text-white mt-6 mb-6">
-    <a href="#" routerLink="/">
+<nav class="flex items-center flex-wrap bg-[#FF0000] p-4 sticky top-0 z-50">
+  <div class="flex items-center text-white w-full">
+    <a href="#" routerLink="/" class="w-full text-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="54px"
         height="54px"
         viewBox="0 0 100 100"
+        class="inline-block"
       >
         <path
           d="M 30 50
@@ -33,15 +32,5 @@
         >Pokedex (a working progress 😊)</span
       >
     </a>
-  </div>
-  <div class="flex items-center w-full md:w-auto">
-    <input
-      type="text"
-      placeholder="Search..."
-      (input)="search()"
-      [(ngModel)]="searchTerm"
-      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    />
-    <button (click)="search()" (keyup.enter)="search()">Search!</button>
   </div>
 </nav>

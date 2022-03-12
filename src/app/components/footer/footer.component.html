@@ -1,0 +1,29 @@
+<nav
+  class="flex items-center flex-wrap bg-[#FF0000] p-4 fixed w-full bottom-0 z-50"
+>
+  <div class="flex text-white w-full">
+    <input
+      type="text"
+      placeholder="Search..."
+      (input)="search()"
+      [(ngModel)]="searchTerm"
+      class="w-5/6 shadow appearance-none border-none rounded-l-full py-2 px-3 placeholder-red-600 text-base text-red-600 font-[500] bg-[#f1f1f1] leading-tight focus:outline-none focus:shadow-outline"
+    />
+    <button
+      (click)="search()"
+      (keyup.enter)="search()"
+      class="w-1/6 bg-[#222224] border-none text-base text-white focus:outline-none content-center rounded-r-full hover:bg-[black] hover:cursor-pointer transition-all"
+    >
+      <svg
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        class="w-6 h-6 m-auto"
+      >
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </button>
+  </div>
+</nav>
