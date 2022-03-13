@@ -1,4 +1,12 @@
-<div *ngIf="visible" class="flex">
+<div
+  *ngIf="visible"
+  class="flex flex-col justify-center h-full items-center mt-8 text-2xl font-thin"
+>
   {{ notFoundMessage }}
-  <a href="#" routerLink="{{ resetLinkRoute }}">{{ resetLinkText }}</a>
+  <a
+    href="#"
+    routerLink="{{ resetLinkRoute }}"
+    class="bg-[#FF0000] text-white text-base rounded-full p-3 m-4 hover:cursor-pointer hover:opacity-80"
+    >{{ resetLinkText }}</a
+  >
 </div>

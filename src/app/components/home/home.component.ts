@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/service/pokemon/pokemon.service';
 import { Pokemon } from 'src/app/shared/models/Pokemon';
 import { ActivatedRoute } from '@angular/router';
+import { Modal } from 'src/app/service/modal/modal.service';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,12 @@ export class HomeComponent implements OnInit {
   pokemons: Pokemon[] = [];
   constructor(
     private pokemonService: PokemonService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modal: Modal
   ) {}
 
   ngOnInit(): void {
+    console.log('we doing too much now');
     this.pokemons = this.pokemonService.getAll();
     this.route.params.subscribe((params) => {
       if (params['searchTerm']) {
@@ -26,5 +29,10 @@ export class HomeComponent implements OnInit {
         this.pokemons = this.pokemonService.getAll();
       }
     });
+  }
+
+  getDetails(pokemon: Pokemon): void {
+    console.log('getDetails called');
+    this.modal.requestModal(pokemon);
   }
 }

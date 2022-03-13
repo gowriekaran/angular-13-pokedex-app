@@ -1,0 +1,30 @@
+<div
+  *ngIf="visible"
+  class="fixed inset-0 bg-[#222224] bg-opacity-70 overflow-y-auto h-full w-full hover:cursor-pointer top-0 z-40"
+  (click)="hideModal()"
+></div>
+<div
+  *ngIf="visible"
+  class="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed p-5 border w-96 shadow-lg rounded-md bg-white z-50"
+>
+  <div class="space-y-4">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }} #{{
+        pokemon.id
+      }}
+    </h3>
+    <p class="text-left">{{ pokemon.description }}</p>
+    <p class="text-left">Height: {{ pokemon.height / 10 }} m</p>
+    <p class="text-left">Weight: {{ pokemon.weight / 10 }} kg</p>
+    <div class="items-center px-4 py-3">
+      <button
+        id="ok-btn"
+        class="px-4 py-2 bg-[#222224] hover:bg-[black] text-white text-base font-medium rounded-md w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300"
+        (click)="hideModal()"
+        (keypress)="hideModal()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>

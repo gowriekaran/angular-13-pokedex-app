@@ -8,7 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   searchTerm: string = '';
-
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {

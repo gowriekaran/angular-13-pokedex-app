@@ -9,8 +9,17 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
+
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, NotFoundComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    NotFoundComponent,
+    FooterComponent,
+    CustomModalComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
