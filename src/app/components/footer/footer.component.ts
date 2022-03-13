@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,19 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  searchTerm: string = '';
+  constructor() {}
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
-
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      if (params['searchTerm']) {
-        this.searchTerm = params['searchTerm'];
-      }
-    });
-  }
-
-  search(): void {
-    this.router.navigateByUrl('/search/' + this.searchTerm);
-  }
+  ngOnInit(): void {}
 }
