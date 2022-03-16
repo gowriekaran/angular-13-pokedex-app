@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from 'src/app/shared/models/Pokemon';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Modal {
+export class SearchService {
   private subject = new Subject<any>();
 
   constructor() {}
 
-  requestModal(pokemon: Pokemon) {
-    this.subject.next(pokemon);
+  sendSearchInputJob(message: string) {
+    this.subject.next(message);
   }
 
-  getModalRequest(): Observable<Pokemon> {
+  receiveSearchInputJob(): Observable<any> {
     return this.subject.asObservable();
   }
 }

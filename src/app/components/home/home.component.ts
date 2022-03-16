@@ -3,6 +3,7 @@ import { PokemonService } from 'src/app/service/pokemon/pokemon.service';
 import { Pokemon } from 'src/app/shared/models/Pokemon';
 import { ActivatedRoute } from '@angular/router';
 import { Modal } from 'src/app/service/modal/modal.service';
+import { SearchService } from 'src/app/service/search/search.service';
 
 @Component({
   selector: 'app-home',
@@ -14,25 +15,34 @@ export class HomeComponent implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private route: ActivatedRoute,
-    private modal: Modal
+    private modal: Modal,
+    private searchService: SearchService
   ) {}
 
   ngOnInit(): void {
-    console.log('we doing too much now');
-    this.pokemons = this.pokemonService.getAll();
     this.route.params.subscribe((params) => {
       if (params['searchTerm']) {
         this.pokemons = this.pokemonService.getAllPokemonsBySearchTerm(
           params['searchTerm']
         );
+
+        this.setSearchInput(params['searchTerm']);
       } else {
         this.pokemons = this.pokemonService.getAll();
+        this.clearSearchInput();
       }
     });
   }
 
   getDetails(pokemon: Pokemon): void {
-    console.log('getDetails called');
     this.modal.requestModal(pokemon);
+  }
+
+  setSearchInput(input: string): void {
+    this.searchService.sendSearchInputJob(input);
+  }
+
+  clearSearchInput(): void {
+    this.searchService.sendSearchInputJob('reset');
   }
 }

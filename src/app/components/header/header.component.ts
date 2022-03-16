@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SearchService } from 'src/app/service/search/search.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   searchTerm: string = '';
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private searchService: SearchService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      if (params['searchTerm']) {
-        this.searchTerm = params['searchTerm'];
+    this.searchService.receiveSearchInputJob().subscribe((message) => {
+      if (message == 'reset') {
+        this.searchTerm = '';
+      } else {
+        this.searchTerm = message;
       }
     });
   }

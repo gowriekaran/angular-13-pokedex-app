@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/service/search/search.service';
 
 @Component({
   selector: 'app-not-found',
@@ -10,7 +11,11 @@ export class NotFoundComponent implements OnInit {
   @Input() notFoundMessage: string = 'Nothing Found!';
   @Input() resetLinkText: string = 'Reset';
   @Input() resetLinkRoute: string = '/';
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {}
+
+  resetSearchInput(): void {
+    this.searchService.sendSearchInputJob('reset');
+  }
 }

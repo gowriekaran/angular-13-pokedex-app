@@ -15,12 +15,9 @@ export class CustomModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.modal.getModalRequest().subscribe((pokemon) => {
-      console.log('something happened');
       if (pokemon) {
-        console.log('found a pokemon obj');
         this.visible = true;
         this.pokemon = pokemon;
-        console.log(pokemon);
       }
     });
   }
