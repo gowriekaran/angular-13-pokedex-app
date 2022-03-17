@@ -1,17 +1,10 @@
 <div class="mb-[56px]">
-  <app-not-found
-    [visible]="!pokemons || pokemons.length <= 0"
-    resetLinkText="Reset search"
-  ></app-not-found>
+  <app-not-found [visible]="!pokemons || pokemons.length <= 0" resetLinkText="Reset search"></app-not-found>
   <app-custom-modal></app-custom-modal>
   <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
     <div class="mx-auto p-3" *ngFor="let pokemon of pokemons">
-      <img
-        src="{{ pokemon.imageURL }}"
-        alt="{{ pokemon.name }}"
-        (click)="getDetails(pokemon)"
-        class="hover:cursor-pointer"
-      />
+      <img src="{{ pokemon.imageURL }}" alt="{{ pokemon.name }}" (click)="getDetails(pokemon)"
+        class="hover:cursor-pointer" />
     </div>
   </div>
 </div>
