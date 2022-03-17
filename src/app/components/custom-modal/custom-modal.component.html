@@ -1,13 +1,10 @@
-<div *ngIf="visible"
-  class="fixed inset-0 bg-[#222224] bg-opacity-70 overflow-y-auto h-full w-full hover:cursor-pointer top-0 z-40"
+<div *ngIf="visible" class="fixed inset-0 bg-[#222224] bg-opacity-70 overflow-y-auto hover:cursor-pointer z-40"
   (click)="hideModal()"></div>
 <div *ngIf="visible"
   class="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed p-3 border w-80 shadow-lg rounded-md bg-white z-50">
   <div class="space-y-4">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
-      {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }} #{{
-      pokemon.id
-      }}
+      #{{pokemon.id}}: {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}
     </h3>
     <img class="mx-auto" src="{{pokemon.imageURL}}" alt="Image of {{pokemon.name}}">
     <p class="">{{ pokemon.description }}</p>

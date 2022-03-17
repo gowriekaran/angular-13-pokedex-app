@@ -27,5 +27,7 @@ import {PokemonService} from 'src/app/service/pokemon/pokemon.service';
     hideModal(): void {
         this.visible = false;
         this.pokemon = new Pokemon();
+        this.evolutionFamily = [];
+        this.hasEvolution = false;
     }
 }
