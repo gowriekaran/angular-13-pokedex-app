@@ -11,7 +11,7 @@ export class PokemonService {
   }
 
   getAllPokemonsByType(type: string): Pokemon[] {
-    return type == 'ALL'
+    return type == 'all'
       ? this.getAll()
       : this.getAll().filter((pokemon) => pokemon.types?.includes(type));
   }

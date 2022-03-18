@@ -1,12 +1,6 @@
-<div
-  *ngIf="types"
-  class="grid grid-cols-5 md:grid-cols-7 lg:grid-cols-10 xl:grid-cols-12 gap-1 m-1"
->
-  <a
-    *ngFor="let type of types"
-    routerLink="/type/{{ type.name }}"
-    class="pokemon-type-{{ type.name }} text-white p-2"
-  >
+<div *ngIf="types" class="grid grid-cols-5 md:grid-cols-7 lg:grid-cols-10 xl:grid-cols-12 gap-1 m-1">
+  <a routerLink="/type/all" class="pokemon-type-all text-white p-2">All (151)</a>
+  <a *ngFor="let type of types" routerLink="/type/{{ type.name }}" class="pokemon-type-{{ type.name }} text-white p-2">
     {{ type.name.charAt(0).toUpperCase() + type.name.slice(1) }} ({{
       type.count
     }})
