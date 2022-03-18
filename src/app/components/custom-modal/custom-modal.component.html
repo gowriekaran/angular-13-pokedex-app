@@ -1,34 +1,55 @@
-<div *ngIf="visible" class="fixed inset-0 bg-[#222224] bg-opacity-70 overflow-y-auto hover:cursor-pointer z-40"
-  (click)="hideModal()"></div>
-<div *ngIf="visible"
-  class="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed p-3 border w-80 shadow-lg rounded-md bg-white z-50">
+<div
+  *ngIf="visible"
+  class="fixed inset-0 bg-[#222224] bg-opacity-70 overflow-y-auto hover:cursor-pointer z-40"
+  (click)="hideModal()"
+></div>
+<div
+  *ngIf="visible"
+  class="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed p-3 border w-80 shadow-lg rounded-md bg-white z-50"
+>
   <div class="space-y-4">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
-      #{{pokemon.id}}: {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}
+      #{{ pokemon.id }}:
+      {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}
     </h3>
-    <img class="mx-auto" src="{{pokemon.imageURL}}" alt="Image of {{pokemon.name}}">
+    <img
+      class="mx-auto"
+      src="{{ pokemon.imageURL }}"
+      alt="Image of {{ pokemon.name }}"
+    />
     <p class="">{{ pokemon.description }}</p>
     <p class="">Height: {{ pokemon.height / 10 }} m</p>
     <p class="">Weight: {{ pokemon.weight / 10 }} kg</p>
     <p>
       Type:
-      <span *ngFor="let x of pokemon.types"
-        class="pokemon-type pokemon-type-{{x}} text-white p-2 m-2">{{x.charAt(0).toUpperCase() + x.slice(1)}}</span>
+      <a
+        *ngFor="let x of pokemon.types"
+        class="pokemon-type pokemon-type-{{ x }} text-white p-2 m-2"
+        routerLink="/type/{{ x }}"
+        (click)="hideModal()"
+        >{{ x.charAt(0).toUpperCase() + x.slice(1) }}</a
+      >
     </p>
     <div *ngIf="hasEvolution">
       <span>Evolutions:</span>
       <div class="flex justify-around">
-        <div *ngFor="let evolution of evolutionFamily" class="w-1/{{evolutionFamily.length}}">
-          <a href="/search/{{evolution.name}}">
-            <img src="{{evolution.imageURL}}" alt="{{evolution.name}}">
+        <div
+          *ngFor="let evolution of evolutionFamily"
+          class="w-1/{{ evolutionFamily.length }}"
+        >
+          <a href="/search/{{ evolution.name }}">
+            <img src="{{ evolution.imageURL }}" alt="{{ evolution.name }}" />
           </a>
         </div>
       </div>
     </div>
-    <div class=" items-center px-4 py-3">
-      <button id="ok-btn"
+    <div class="items-center px-4 py-3">
+      <button
+        id="ok-btn"
         class="px-4 py-2 bg-[#222224] hover:bg-[black] text-white text-base font-medium rounded-md w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300"
-        (click)="hideModal()" (keypress)="hideModal()">
+        (click)="hideModal()"
+        (keypress)="hideModal()"
+      >
         Close
       </button>
     </div>

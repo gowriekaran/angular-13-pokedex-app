@@ -10,6 +10,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { CustomModalComponent } from './components/custom-modal/custom-modal.component';
+import { TypesComponent } from './components/types/types.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CustomModalComponent } from './components/custom-modal/custom-modal.com
     NotFoundComponent,
     FooterComponent,
     CustomModalComponent,
+    TypesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
