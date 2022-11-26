@@ -1782,8 +1782,8 @@ export class PokemonService {
         id: 145,
         name: 'zapdos',
         types: ['flying', 'electric'],
-        height: 0,
-        weight: 0,
+        height: 15,
+        weight: 530,
         description:
           'A legendary Pokémon that is said to live in thunderclouds. It freely controls lightning bolts.',
         imageURL: '/assets/images/pokemon/145.png',
